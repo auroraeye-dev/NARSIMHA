@@ -125,7 +125,7 @@ This was my **first-ever participation**, and I competed **solo**.
 - **PnL:** 138K
 - **Manual Profit:** ~89K  
 - **Manual Rank:** 156 (Global 🌍)  
-- **Overall Rank:** ~2900 / 20,000  
+- **Overall Rank:** ~2900 / 18,800  
 
 ---
 
