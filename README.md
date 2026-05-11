@@ -159,15 +159,6 @@ This was my **first-ever participation**, and I competed **solo**.
 - Significant learning curve across rounds  
 
 ---
-
-# 📂 Repository Structure
-
-├── strategies/ # Algorithmic trading strategies
-├── datasets/ # Historical market data
-├── analysis/ # Backtesting & insights
-├── manual_trading/ # Auction & manual strategies
-├── reports/ # Detailed explanations
-└── README.md
 # 🧠 Key Learnings
 
 - Market microstructure > theoretical models  
