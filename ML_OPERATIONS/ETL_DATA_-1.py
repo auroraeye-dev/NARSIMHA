@@ -87,8 +87,7 @@ def load_and_split(day: int):
 
 
 def merge_and_clean(prc: pd.DataFrame, trd: pd.DataFrame) -> pd.DataFrame:
-    # LEFT join: keep every book observation even when no trade happened.
-    # If multiple trades in one timestamp, collapse to the volume-weighted avg price & total qty.
+  
     trd_collapsed = (
         trd.groupby("timestamp")
            .apply(lambda g: pd.Series({
@@ -217,7 +216,7 @@ drift_ceiling  = intarian_drift_pnl(merged_pepper)
 
 
 # ==============================================================================
-# DIAGNOSTIC: how often does market price confirm fair direction?
+# DIAGNOSTIC:
 # ==============================================================================
 def direction_confirmation(df: pd.DataFrame, label: str):
     d = df.dropna(subset=["trade_price", "fair_price", "bid_price_1", "ask_price_1"])
@@ -257,7 +256,7 @@ plot_mid_with_fair(merged_pepper, "INTARIAN_PEPPER_ROOT", INTARIAN_HALF_SPREAD)
 
 
 # ==============================================================================
-# INVENTORY SIZING CURVE (Beta distribution, properly calibrated)
+# INVENTORY SIZING CURVE (Beta distribution)
 # ==============================================================================
 def beta_pdf(u, alpha, beta):
     if u < 0.0 or u > 1.0:
@@ -307,8 +306,6 @@ def build_ascending_beta_distribution(a, b, alphaL, alphaR, steps=100):
 
 
 # Ranges are in (price - fair) space.
-# Best bid sits at fair - half_spread. Start scaling in there, max out 5 ticks deeper.
-# Half-spreads: OSMIUM=8, INTARIAN=7. Use OSMIUM params here; duplicate for pepper as needed.
 BUY_A, BUY_B   = -OSMIUM_HALF_SPREAD, -OSMIUM_HALF_SPREAD - 5    # -8, -13
 SELL_A, SELL_B =  OSMIUM_HALF_SPREAD,  OSMIUM_HALF_SPREAD + 5    #  8,  13
 
